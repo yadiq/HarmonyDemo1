@@ -1,10 +1,10 @@
 {
   "app": {
-    "bundleName": "com.example.harmonydemo",
-    "vendor": "example",
+    "bundleName": "com.example.harmonydemo",//唯一标识
+    "vendor": "example",//厂商
     "versionCode": 1000000,
     "versionName": "1.0.0",
-    "icon": "$media:layered_image",
+    "icon": "$media:layered_image",//应用的图标,会被module覆盖
     "label": "$string:app_name"
   }
 }

@@ -11,7 +11,7 @@
     ],
     "deliveryWithInstall": true,
     "installationFree": false,
-    "pages": "$profile:main_pages",
+    "pages": "$profile:main_pages", //页面路由
     "abilities": [
       {
         "name": "EntryAbility",

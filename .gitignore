@@ -1,3 +1,12 @@
+# .gitignore 语法
+# 以”#”号开头表示注释；
+# 以斜杠“/”开头防止递归，
+# 以斜杠“/”结尾指定目录
+# 以星号“*”通配多个字符；
+# 以问号“?”通配单个字符
+# 以方括号“[]”包含单个字符的匹配列表；
+# 以叹号“!”表示不忽略(跟踪)匹配到的文件或目录；
+
 /node_modules
 /oh_modules
 /local.properties
@@ -10,3 +19,6 @@
 /.clang-tidy
 **/.test
 /.appanalyzer
+
+#/oh-package-lock.json5
+#.preview/
