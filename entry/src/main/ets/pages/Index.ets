@@ -49,7 +49,8 @@ struct Index {
       })
     }
     .height('100%')
-    .width('100%')
+    .width('720lpx')//设计基准宽度720lpx
     .justifyContent(FlexAlign.Center)//对齐
+    .backgroundColor(Color.Green)
   }
 }
