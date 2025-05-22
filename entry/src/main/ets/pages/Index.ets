@@ -9,6 +9,21 @@ import { BusinessError } from '@kit.BasicServicesKit';
 struct Index {
   @State message: string = 'Hello World'; //状态变量
 
+  //页面显示
+  onPageShow() {
+    console.info('onPageShow');
+  }
+
+  //页面隐藏
+  onPageHide() {
+    console.info('onPageHide');
+  }
+
+  //点击返回按钮
+  onBackPress() {
+    console.info('onBackPress');
+  }
+
   build() { //ui描述
     Column() { //根布局
       //Text($r('app.string.app_name'))//使用系统资源
