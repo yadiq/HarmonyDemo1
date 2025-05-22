@@ -4,13 +4,14 @@ import { BusinessError } from '@kit.BasicServicesKit';
 
 //入口
 @Entry
-//组件
+  //自定义组件
 @Component
 struct Index {
-  @State message: string = 'Hello World';//状态变量
+  @State message: string = 'Hello World'; //状态变量
 
-  build() {
-    Column() {//根布局
+  build() { //ui描述
+    Column() { //根布局
+      //Text($r('app.string.app_name'))//使用系统资源
       Text(this.message)
         .id('HelloWorld')//组件标识id
         .fontSize($r('app.float.page_text_font_size'))
@@ -47,30 +48,35 @@ struct Index {
             console.error(`Failed to jump to the second page. Code is ${err.code}, message is ${err.message}`)
           })
       })
+
+      //自定义组件
+      HelloComponent1({
+        message: '自定义组件 构造'
+      }).margin({
+        top: 20
+      })
     }
     .height('100%')
-    .width('720lpx')//设计基准宽度720lpx
-    .justifyContent(FlexAlign.Center)//对齐
+    .width('720lpx') //设计基准宽度720lpx
+    .justifyContent(FlexAlign.Center) //对齐
     .backgroundColor(Color.Green)
   }
 }
 
+//自定义组件
 @Preview({
   title: 'ContentTable'
 })
 @Component
-struct ContentTablePreview {
+struct HelloComponent1 {
+  @State message: string = '自定义组件'
+
   build() {
-    Flex() {
-      Button() {
-        Text('Next')
-          .fontSize(30)
-          .fontWeight(FontWeight.Bold)
-      }
-      .type(ButtonType.Capsule)
-      .margin({
-        top: 20 //单位vp 屏幕密度相关像素
-      })
+    Row() {
+      Text(this.message)
+        .onClick(() => {
+          this.message = "自定义组件 Click"
+        })
     }
   }
 }
