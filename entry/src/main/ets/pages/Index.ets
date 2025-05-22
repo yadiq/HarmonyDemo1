@@ -54,3 +54,23 @@ struct Index {
     .backgroundColor(Color.Green)
   }
 }
+
+@Preview({
+  title: 'ContentTable'
+})
+@Component
+struct ContentTablePreview {
+  build() {
+    Flex() {
+      Button() {
+        Text('Next')
+          .fontSize(30)
+          .fontWeight(FontWeight.Bold)
+      }
+      .type(ButtonType.Capsule)
+      .margin({
+        top: 20 //单位vp 屏幕密度相关像素
+      })
+    }
+  }
+}

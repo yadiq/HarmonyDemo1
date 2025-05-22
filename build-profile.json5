@@ -5,8 +5,8 @@
       {
         "name": "default",
         "signingConfig": "default",
-        "targetSdkVersion": "5.0.5(17)",
-        "compatibleSdkVersion": "5.0.5(17)",
+        "targetSdkVersion": "5.0.5(17)",//目标版本。不配置时与compatibleSdkVersion一致
+        "compatibleSdkVersion": "5.0.5(17)",//兼容的最低版本。"4.0.0(10)"
         "runtimeOS": "HarmonyOS",
         "buildOption": {
           "strictMode": {
