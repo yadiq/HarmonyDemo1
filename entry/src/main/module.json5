@@ -1,32 +1,48 @@
 {
   "module": {
-    "name": "entry",//模块名称
-    "type": "entry",//模块类型 entry:主模块, feature:动态特性模块, har:静态共享包模块, shared:动态共享包模块
-    "description": "$string:module_desc",//模块描述
-    "mainElement": "EntryAbility",//入口UIAbility名称
-    "deviceTypes": [ //可以运行在哪类设备上
+    "name": "entry",
+    //模块名称
+    "type": "entry",
+    //模块类型 entry:主模块, feature:动态特性模块, har:静态共享包模块, shared:动态共享包模块
+    "description": "$string:module_desc",
+    //模块描述
+    "mainElement": "EntryAbility",
+    //入口UIAbility名称
+    "deviceTypes": [
+      //可以运行在哪类设备上
       "phone",
       "tablet",
-      "2in1" //PC设备 PC/2in1
+      "2in1"
+      //PC设备 PC/2in1
     ],
-    "deliveryWithInstall": true, //该模块是否在用户主动安装的时候安装
-    "installationFree": false, //是否支持免安装特性
-    "pages": "$profile:main_pages", //配置页面信息
-      //src:页面的路由信息
-      //window:窗口相关的配置
-        //designWidth:页面基准宽度，缺省值为720px
-        //autoDesignWidth:页面设计基准宽度是否自动计算，缺省false(使用designWidth)
-    "abilities": [ //UIAbility组件的配置信息
+    "deliveryWithInstall": true,
+    //该模块是否在用户主动安装的时候安装
+    "installationFree": false,
+    //是否支持免安装特性
+    "pages": "$profile:main_pages",
+    //配置页面信息
+    //src:页面的路由信息
+    //window:窗口相关的配置
+    //designWidth:页面基准宽度，缺省值为720px
+    //autoDesignWidth:页面设计基准宽度是否自动计算，缺省false(使用designWidth)
+    "abilities": [
+      //UIAbility组件的配置
       {
         "name": "EntryAbility",
-        "srcEntry": "./ets/entryability/EntryAbility.ets", //代码路径
+        //代码路径
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
         "description": "$string:EntryAbility_desc",
-        "icon": "$media:layered_image",//图标
-        "label": "$string:EntryAbility_label",//显示名称
-        "startWindowIcon": "$media:startIcon",//启动页面图标
+        "icon": "$media:layered_image",
+        //图标
+        "label": "$string:EntryAbility_label",
+        //显示名称
+        "startWindowIcon": "$media:startIcon",
+        //启动页面图标
         "startWindowBackground": "$color:start_window_background",
-        "exported": true,//是否可以被其他应用调用
-        "skills": [//能够接收的Want特征集。需要在桌面展示图片
+        "exported": true,
+        //是否可以被其他应用调用
+        "skills": [
+          //能够接收的Want特征集。需要在桌面展示图片
           {
             "entities": [
               "entity.system.home"
@@ -38,13 +54,17 @@
         ]
       }
     ],
-    "extensionAbilities": [ //ExtensionAbility的配置信息
+    //ExtensionAbility组件的配置
+    "extensionAbilities": [
+
       {
         "name": "EntryBackupAbility",
-        "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",//代码路径
-        "type": "backup",//类型。form:卡片, backup:数据备份
+        "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",
+        //类型。form:卡片, backup:数据备份
+        "type": "backup",
         "exported": false,
-        "metadata": [//自定义元信息
+        "metadata": [
+          //自定义元信息
           {
             "name": "ohos.extension.backup",
             "resource": "$profile:backup_config"
