@@ -2,7 +2,8 @@
   "src": [
     "pages/Index",
     "pages/Second",
-    "pages/LoginPage"
+    "pages/LoginPage",
+    "pages/MainPage"
   ],
   "window": {
     "designWidth": 720,

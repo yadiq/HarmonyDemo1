@@ -47,6 +47,24 @@ export class CommonUtils {
       duration: CommonConstants.TOAST_DURATION
     });
   }
+
+  /**
+   * 登录
+   * @param account
+   * @param password
+   */
+  public login(account: string, password: string): void {
+    //check
+    if (account === '') {
+      this.showToastContent('请输入账号')
+      return
+    }
+    if (password === '') {
+      this.showToastContent('请输入密码')
+      return
+    }
+    this.routerPage('pages/MainPage')
+  }
 }
 
 export default new CommonUtils();

@@ -2,7 +2,7 @@ import StyleConstants from '../common/constants/StyleConstants'
 import CommonUtils from '../utils/CommonUtils'
 
 /**
- * 登录页
+ * 登录界面
  */
 @Entry
 @Component
