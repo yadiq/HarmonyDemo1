@@ -11,6 +11,71 @@
     {
       "name": "EntryAbility_label",
       "value": "label"
+    },
+
+    {
+      "name": "my_love",
+      "value": "我的最爱"
+    },
+    {
+      "name": "history_record",
+      "value": "历史记录"
+    },
+    {
+      "name": "message",
+      "value": "消息"
+    },
+    {
+      "name": "shopping_cart",
+      "value": "购物车"
+    },
+    {
+      "name": "my_goal",
+      "value": "我的目标"
+    },
+    {
+      "name": "group",
+      "value": "圈子"
+    },
+    {
+      "name": "favorites",
+      "value": "收藏"
+    },
+    {
+      "name": "recycle_bin",
+      "value": "回收站"
+    },
+    {
+      "name": "open_my_love",
+      "value": "打开我的最爱"
+    },
+    {
+      "name": "open_history_record",
+      "value": "打开历史记录"
+    },
+    {
+      "name": "open_message",
+      "value": "打开消息"
+    },
+    {
+      "name": "open_shopping_cart",
+      "value": "打开购物车"
+    },
+    {
+      "name": "open_my_goal",
+      "value": "打开我的目标"
+    },
+    {
+      "name": "open_group",
+      "value": "打开圈子"
+    },
+    {
+      "name": "open_favorites",
+      "value": "打开收藏"
+    },
+    {
+      "name": "open_recycle_bin",
+      "value": "打开回收站"
     }
   ]
 }

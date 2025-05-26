@@ -26,7 +26,6 @@ struct MainPage {
       }
       .tabBar(this.TabBuilder('Mine', CommonConstants.MINE_TAB_INDEX,
         $r('app.media.ic_mine_selected'), $r('app.media.ic_mine_normal')))
-
     }
     .barWidth('100%')
     .barHeight('7.2%')
@@ -39,6 +38,7 @@ struct MainPage {
     })
   }
 
+  // 导航栏按钮
   @Builder
   TabBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
     Column() {
