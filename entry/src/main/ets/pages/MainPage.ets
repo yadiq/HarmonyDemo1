@@ -31,7 +31,7 @@ struct MainPage {
     .barWidth('100%')
     .barHeight('7.2%')
     .vertical(false)
-    .backgroundColor(Color.White)
+    .backgroundColor($r('app.media.background'))
     .barMode(BarMode.Fixed)
     .scrollable(false)
     .onChange((index: number) => {

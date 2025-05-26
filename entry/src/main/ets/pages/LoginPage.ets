@@ -85,7 +85,8 @@ struct LoginBottom {
         Line()
           .width('100%')
           .height('0.5')
-          .backgroundColor(Color.Black)
+          .backgroundColor($r('app.color.background'))
+
         // 密码
         TextInput({placeholder: '密码'})
           .maxLength(8)
@@ -131,7 +132,7 @@ struct LoginBottom {
         .fontSize(16)
         .fontWeight(FontWeight.Medium)
         .onClick(() => {
-          //TODO 登录
+          CommonUtils.login(this.account, this.password)
         })
 
       //注册
