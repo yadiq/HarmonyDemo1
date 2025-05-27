@@ -67,15 +67,15 @@ struct LoginTop {
 @Preview
 @Component
 struct LoginBottom {
-  @State account: string = ''
-  @State password: string = ''
+  @State account: string = '1'
+  @State password: string = '1'
 
   build() {
     Column() {
       // 两个输入框
       Column() {
         // 账号
-        TextInput({placeholder: '账号'})
+        TextInput({placeholder: '账号', text: this.account})
           .maxLength(11)
           .type(InputType.Number)
           .inputStyle()
@@ -88,7 +88,7 @@ struct LoginBottom {
           .backgroundColor($r('app.color.background'))
 
         // 密码
-        TextInput({placeholder: '密码'})
+        TextInput({placeholder: '密码', text: this.password})
           .maxLength(8)
           .type(InputType.Password)
           .inputStyle()
