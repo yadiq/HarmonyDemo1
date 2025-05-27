@@ -1,7 +1,7 @@
-import StyleConstants from "../common/constants/StyleConstants"
-import CommonUtils from "../utils/CommonUtils"
-import ItemData from "../ViewModel/ItemData"
-import MainViewModel from "../ViewModel/MainViewModel"
+import StyleConstants from '../common/constants/StyleConstants'
+import CommonUtils from '../utils/CommonUtils'
+import ItemData from '../ViewModel/ItemData'
+import MainViewModel from '../ViewModel/MainViewModel'
 
 /**
  * 首页
@@ -32,7 +32,7 @@ export default struct HomePage {
       .height('100%')
       .backgroundColor($r('app.color.background'))
     }
-    .scrollBar(BarState.Off)//滚动条显示状态。
+    .scrollBar(BarState.Off) //滚动条显示状态。
   }
 }
 
@@ -74,7 +74,7 @@ struct CenterGridView {
         //基于数组类型数据来进行循环渲染。数据源，组件生成，键值生成
         ForEach(MainViewModel.getCenterGridData(), (item: ItemData) => {
           GridItem() {
-            GridItemView({item: item})
+            GridItemView({ item: item })
           }
         }, (item: ItemData) => JSON.stringify(item))
       }
@@ -100,12 +100,10 @@ struct CenterGridView {
  */
 @Component
 struct GridItemView {
-
-  private item? : ItemData;
+  private item?: ItemData;
 
   //自定义组件生命周期之一，在执行其build函数之前执行
   aboutToAppear(): void {
-
   }
 
   build() {
@@ -118,7 +116,7 @@ struct GridItemView {
 
         Text(this.item.title)
           .fontSize(12)
-          .margin({top: 4})
+          .margin({ top: 4 })
       }
     }
     .onClick(() => {

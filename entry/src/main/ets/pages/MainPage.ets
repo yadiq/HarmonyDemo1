@@ -1,5 +1,6 @@
 import CommonConstants from '../common/constants/CommonConstants'
 import HomePage from '../view/HomePage'
+import MinePage from '../view/MinePage'
 
 /**
  * 主界面
@@ -22,7 +23,7 @@ struct MainPage {
         $r('app.media.ic_home_selected'), $r('app.media.ic_home_normal')))
 
       TabContent() {
-        HomePage()
+        MinePage()
       }
       .tabBar(this.TabBuilder('Mine', CommonConstants.MINE_TAB_INDEX,
         $r('app.media.ic_mine_selected'), $r('app.media.ic_mine_normal')))

@@ -1,4 +1,4 @@
-import { CENTER_GRID_DATA, SWIPER_IMAGES } from '../common/data/SourceData';
+import { CENTER_GRID_DATA, MINE_LIST_DATA, SWIPER_IMAGES } from '../common/data/SourceData';
 import ItemData from './ItemData';
 
 /**
@@ -28,6 +28,20 @@ export class MainViewModel {
     return centerGridData;
   }
 
+  //获取功能列表
+  public getMineListData(): Array<ItemData> {
+    let centerGridData: Array<ItemData> = [];
+    MINE_LIST_DATA.forEach((itemData: ItemData) => {
+      let data: ItemData = {
+        title: itemData.title,
+        img: itemData.img,
+        others: itemData.others,
+        clickPrompt: itemData.clickPrompt
+      }
+      centerGridData.push(data)
+    })
+    return centerGridData;
+  }
 }
 
 
