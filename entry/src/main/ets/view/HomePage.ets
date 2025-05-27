@@ -2,11 +2,11 @@ import StyleConstants from '../common/constants/StyleConstants'
 import CommonUtils from '../utils/CommonUtils'
 import ItemData from '../ViewModel/ItemData'
 import MainViewModel from '../ViewModel/MainViewModel'
+import { JSON } from '@kit.ArkTS'
 
 /**
  * 首页
  */
-@Preview
 @Component
 export default struct HomePage {
   build() {
@@ -22,14 +22,14 @@ export default struct HomePage {
           })
           .alignSelf(ItemAlign.Start)
 
-        // 图片滑动
+        //滑块视图. Column + Swiper + Image
         SwiperView()
-        //网格
+        //网格。 Column + Grid + GridItem + Column
         CenterGridView()
-
+        //列表。 Column + List + ListItem + Column
+        ListImageView()
       }
       .width('100%')
-      .height('100%')
       .backgroundColor($r('app.color.background'))
     }
     .scrollBar(BarState.Off) //滚动条显示状态。
@@ -63,7 +63,7 @@ struct SwiperView {
 }
 
 /**
- * 中间网格
+ * 按钮网格
  */
 @Preview
 @Component
@@ -96,11 +96,45 @@ struct CenterGridView {
 }
 
 /**
- * 自定义网格Item
+ *
+ */
+@Preview
+@Component
+struct ListImageView {
+  build() {
+    Column() {
+      Text('列表')
+        .fontSize(16)
+        .fontWeight(FontWeight.Medium)
+        .alignSelf(ItemAlign.Start)
+        .margin({
+          top: 12,
+          left: 12
+        })
+      List({ space: 12 }) { //主轴方向的间隔 默认0
+        ForEach(MainViewModel.getListImageData(), (item: ItemData) => {
+          ListItem() {
+            ListItemView({ item: item })
+          }
+          .margin({ right: 6 })
+          .borderRadius(12)
+        }, (item: ItemData) => JSON.stringify(item.id))
+      }
+      .width('95%')
+      .margin(12)
+      .lanes(2) //布局列数或行数
+    }
+  }
+}
+
+
+//////////////////////自定义View///////////////////
+/**
+ * 网格item
  */
 @Component
 struct GridItemView {
-  private item?: ItemData;
+  public item?: ItemData;
 
   //自定义组件生命周期之一，在执行其build函数之前执行
   aboutToAppear(): void {
@@ -118,6 +152,55 @@ struct GridItemView {
           .fontSize(12)
           .margin({ top: 4 })
       }
+    }
+    .onClick(() => {
+      if (this.item?.clickPrompt) {
+        CommonUtils.showToastContent(this.item?.clickPrompt)
+      }
+    })
+  }
+}
+
+/**
+ * 列表item
+ */
+@Component
+struct ListItemView {
+  public item?: ItemData
+  private itemImage?: Resource
+  private itemTitle?: Resource
+  private itemOthers?: Resource
+
+  aboutToAppear(): void {
+    if (this.item !== undefined) {
+      this.itemImage = this.item.img
+      this.itemTitle = this.item.title
+      this.itemOthers = this.item.others
+    }
+  }
+
+  build() {
+    Stack({ alignContent: Alignment.TopStart }) {
+      if (this.itemImage) {
+        Image(this.itemImage)
+          .objectFit(ImageFit.Cover)//保持宽高比进行缩小或者放大，使得图片两边都大于或等于显示边界。
+          .aspectRatio(1.32)//当前组件的宽高比
+          .syncLoad(true)
+      }
+      Column() {
+        Text(this.itemTitle)
+          .fontSize(16)
+          .fontWeight(FontWeight.Medium)
+          .alignSelf(ItemAlign.Start)
+        Text(this.itemOthers)
+          .margin({ top: 4 })
+          .fontSize(12)
+          .fontColor(Color.Gray)
+      }
+      .margin({
+        left: 8,
+        top: 8
+      })
     }
     .onClick(() => {
       if (this.item?.clickPrompt) {

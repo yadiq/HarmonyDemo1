@@ -1,10 +1,10 @@
-
 /**
  * 本地数据源
  */
 
-import ItemData from "../../ViewModel/ItemData"
+import ItemData from '../../ViewModel/ItemData';
 
+//主界面顶部滑动，图片列表
 export const SWIPER_IMAGES: Array<Resource> = [
   $r('app.media.ic_first_card'),
   $r('app.media.ic_second_card'),
@@ -12,6 +12,7 @@ export const SWIPER_IMAGES: Array<Resource> = [
   $r('app.media.ic_fourth_card'),
 ]
 
+//主界面中间九宫格，图文列表
 export const CENTER_GRID_DATA: Array<ItemData> = [
   {
     title: $r('app.string.my_love'),
@@ -94,5 +95,80 @@ export const MINE_LIST_DATA: Array<ItemData> = [
     img: $r('app.media.ic_privacy'),
     others: undefined,
     clickPrompt: $r('app.string.check_privacy')
+  }]
+
+//主界面底部列表，图文列表
+export const LIST_IMAGE_DATA: Array<ItemData> = [
+  {
+    title: $r('app.string.main_page_rankings'),
+    img: $r('app.media.ic_top'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_rankings')
+  },
+  {
+    title: $r('app.string.main_page_new'),
+    img: $r('app.media.ic_new'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_new')
+  },
+  {
+    title: $r('app.string.main_Page_brand'),
+    img: $r('app.media.ic_brand'),
+    others: $r('app.string.main_page_more'),
+    clickPrompt: $r('app.string.open_brand')
+  },
+  {
+    title: $r('app.string.main_page_found'),
+    img: $r('app.media.ic_found'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_found')
+  },
+  {
+    title: $r('app.string.main_page_rankings'),
+    img: $r('app.media.ic_top'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_rankings')
+  },
+  {
+    title: $r('app.string.main_page_new'),
+    img: $r('app.media.ic_new'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_new')
+  },
+  {
+    title: $r('app.string.main_Page_brand'),
+    img: $r('app.media.ic_brand'),
+    others: $r('app.string.main_page_more'),
+    clickPrompt: $r('app.string.open_brand')
+  },
+  {
+    title: $r('app.string.main_page_found'),
+    img: $r('app.media.ic_found'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_found')
+  },
+  {
+    title: $r('app.string.main_page_rankings'),
+    img: $r('app.media.ic_top'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_rankings')
+  },
+  {
+    title: $r('app.string.main_page_new'),
+    img: $r('app.media.ic_new'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_new')
+  },
+  {
+    title: $r('app.string.main_Page_brand'),
+    img: $r('app.media.ic_brand'),
+    others: $r('app.string.main_page_more'),
+    clickPrompt: $r('app.string.open_brand')
+  },
+  {
+    title: $r('app.string.main_page_found'),
+    img: $r('app.media.ic_found'),
+    others: $r('app.string.main_page_others'),
+    clickPrompt: $r('app.string.open_found')
   }
-];
+]
