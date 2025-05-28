@@ -2,6 +2,7 @@ import CommonConstants from '../common/constants/CommonConstants'
 import CommonUtils from '../utils/CommonUtils'
 import ItemData from '../ViewModel/ItemData'
 import MainViewModel from '../ViewModel/MainViewModel'
+import { LogoutCustomDialog } from './LogoutCustomDialog'
 
 /**
  * 我的页面
@@ -9,6 +10,13 @@ import MainViewModel from '../ViewModel/MainViewModel'
 @Preview
 @Component
 export default struct MinePage {
+  //退出弹窗
+  logoutCustomDialogController: CustomDialogController | null = new CustomDialogController({
+    builder: LogoutCustomDialog(),
+    alignment: DialogAlignment.Center,
+    offset: { dx: 0, dy: -25 }
+  });
+
   build() {
     Column() {
       Text('我的')
@@ -31,7 +39,10 @@ export default struct MinePage {
         .fontSize(16)
         .fontWeight(FontWeight.Medium)
         .backgroundColor('#E5E8EA')
-        .onClick(() => this.logout())
+        .onClick(() => {
+          this.logoutCustomDialogController?.open();
+          //CommonUtils.routerPage(CommonConstants.LOGIN_PAGE_URL)
+        })
     }
     .width('100%')
     .height('100%')
@@ -40,10 +51,6 @@ export default struct MinePage {
       right: 12
     })
     .backgroundColor($r('app.color.background'))
-  }
-
-  logout() {
-    CommonUtils.routerPage(CommonConstants.LOGIN_PAGE_URL)
   }
 }
 
