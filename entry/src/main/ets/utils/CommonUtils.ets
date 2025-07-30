@@ -16,7 +16,7 @@
 import { router } from '@kit.ArkUI';
 import { promptAction } from '@kit.ArkUI';
 import CommonConstants from '../common/constants/CommonConstants';
-import Logger from '../common/utils/Logger';
+import Log from '../common/utils/LogUtil';
 
 /**
  * Common operation tools.
@@ -32,7 +32,7 @@ export class CommonUtils {
     router.replaceUrl({
       url: url
     }).catch((error: Error) => {
-      Logger.error(CommonConstants.TAG_COMMON_UTILS, 'replace url error ' + JSON.stringify(error));
+      Log.e(CommonConstants.TAG_COMMON_UTILS, 'replace url error ' + JSON.stringify(error));
     });
   }
 

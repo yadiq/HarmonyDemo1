@@ -15,7 +15,7 @@
 
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-class Logger {
+class LogUtil {
   private domain: number;
 
   constructor(domain: number) {
@@ -28,21 +28,21 @@ class Logger {
   //format 格式字符串,标识{public}的内容明文输出
   //args 格式字符串对应的参数
 
-  debug(tag: string, format: string, ...args: string[]): void {
+  d(tag: string, format: string, ...args: string[]): void {
     hilog.debug(this.domain, tag, format, args);
   }
 
-  info(tag: string, format: string, ...args: string[]): void {
+  i(tag: string, format: string, ...args: string[]): void {
     hilog.info(this.domain, tag, format, args);
   }
 
-  warn(tag: string, format: string, ...args: string[]): void {
+  w(tag: string, format: string, ...args: string[]): void {
     hilog.warn(this.domain, tag, format, args);
   }
 
-  error(tag: string, format: string, ...args: string[]): void {
+  e(tag: string, format: string, ...args: string[]): void {
     hilog.error(this.domain, tag, format, args);
   }
 }
 
-export default new Logger(0x0000)
+export default new LogUtil(0x0000)

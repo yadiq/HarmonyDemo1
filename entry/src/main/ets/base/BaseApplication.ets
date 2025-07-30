@@ -1,20 +1,15 @@
 import { AbilityStage } from "@kit.AbilityKit";
+import Log from '../common/utils/LogUtil';
 
 //应用 Application 类
-export default class MyApplication extends AbilityStage {
+export default class BaseApplication extends AbilityStage {
+  private TAG = "BaseApplication"
+
   onCreate(): void {
-    console.log('==> MyApplication onCreate');
-  }
-
-  onForeground(): void {
-    console.log('==> MyApplication onForeground');
-  }
-
-  onBackground(): void {
-    console.log('==> MyApplication onBackground');
+    Log.d(this.TAG, "onCreate")
   }
 
   onDestroy(): void {
-    console.log('==> MyApplication onDestroy');
+    Log.d(this.TAG, "onDestroy")
   }
 }
