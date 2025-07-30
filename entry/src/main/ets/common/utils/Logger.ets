@@ -17,17 +17,8 @@ import { hilog } from '@kit.PerformanceAnalysisKit';
 
 class Logger {
   private domain: number;
-  private prefix: string;
-  private format: string = '%{public}s, %{public}s';
 
-  /**
-   * constructor.
-   *
-   * @param Prefix Identifies the log tag.
-   * @param domain Domain Indicates the service domain, which is a hexadecimal integer ranging from 0x0 to 0xFFFFF.
-   */
-  constructor(prefix: string = 'MyApp', domain: number = 0xFF00) {
-    this.prefix = prefix;
+  constructor(domain: number) {
     this.domain = domain;
   }
 
@@ -36,21 +27,22 @@ class Logger {
   //tag 日志标识
   //format 格式字符串,标识{public}的内容明文输出
   //args 格式字符串对应的参数
-  debug(...args: string[]): void {
-    hilog.debug(this.domain, this.prefix, this.format, args);
+
+  debug(tag: string, format: string, ...args: string[]): void {
+    hilog.debug(this.domain, tag, format, args);
   }
 
-  info(...args: string[]): void {
-    hilog.info(this.domain, this.prefix, this.format, args);
+  info(tag: string, format: string, ...args: string[]): void {
+    hilog.info(this.domain, tag, format, args);
   }
 
-  warn(...args: string[]): void {
-    hilog.warn(this.domain, this.prefix, this.format, args);
+  warn(tag: string, format: string, ...args: string[]): void {
+    hilog.warn(this.domain, tag, format, args);
   }
 
-  error(...args: string[]): void {
-    hilog.error(this.domain, this.prefix, this.format, args);
+  error(tag: string, format: string, ...args: string[]): void {
+    hilog.error(this.domain, tag, format, args);
   }
 }
 
-export default new Logger('LoginDemo', 0xFF00)
+export default new Logger(0x0000)

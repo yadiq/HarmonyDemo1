@@ -1,16 +1,16 @@
-import { AbilityConstant, ConfigurationConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import Logger from '../common/utils/Logger';
-import { deviceInfo } from '@kit.BasicServicesKit';
-import CommonConstants from '../common/constants/CommonConstants';
-import { GlobalContext } from '../common/utils/GlobalContext';
 
-const DOMAIN = 0x0000;
-
+//主 UIAbility 类
 //UIAbility组件，提供展示UI的能力，主要用于和用户交互
 export default class EntryAbility extends UIAbility {
+
+  private TAG = "EntryAbility"
+
+  //创建 Ability 时调用。初始化资源
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
-    Logger.info(CommonConstants.TAG_ABILITY, 'Ability onCreate');
+    Logger.info(this.TAG, 'Ability onCreate');
 
     // this.context.getApplicationContext().setColorMode(ConfigurationConstant.ColorMode.COLOR_MODE_NOT_SET);
     //存储键值对
@@ -36,42 +36,44 @@ export default class EntryAbility extends UIAbility {
     // }
   }
 
-  onDestroy(): void {
-    Logger.info(CommonConstants.TAG_ABILITY, 'Ability onDestroy');
-  }
-
-  onForeground(): void {
-    // Ability has brought to foreground
-    Logger.info(CommonConstants.TAG_ABILITY, 'Ability onForeground');
-  }
-
-  onBackground(): void {
-    // Ability has back to background
-    Logger.info(CommonConstants.TAG_ABILITY, 'Ability onBackground');
-  }
-
-
-  /**
-   * 主窗口创建，设置主页
-   */
+  //创建 UI 页面时调用。设置 UI 页面
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    Logger.info(CommonConstants.TAG_ABILITY, 'Ability onWindowStageCreate');
+    Logger.info(this.TAG, 'Ability onWindowStageCreate');
     windowStage.loadContent('pages/LoginPage', (err, data) => {
       if (err.code) {
-        Logger.error(CommonConstants.TAG_ABILITY, 'Load the content to failed ' + JSON.stringify(err));
+        Logger.error(this.TAG, 'Load the content to failed ' + JSON.stringify(err));
         return;
       }
-      Logger.info(CommonConstants.TAG_ABILITY, 'Loading the content to succeeded ' + JSON.stringify(data));
+      Logger.info(this.TAG, 'Load the content to succeeded ' + JSON.stringify(data));
     });
   }
 
-
-  /**
-   * 主窗口销毁，释放UI相关资源
-   */
+  //UI 页面销毁时调用。释放 UI 资源
   onWindowStageDestroy(): void {
-    Logger.info(CommonConstants.TAG_ABILITY, 'Ability onWindowStageDestroy');
+    Logger.info(this.TAG, 'Ability onWindowStageDestroy');
   }
+
+  //应用从后台进入前台。恢复状态或资源
+  onForeground(): void {
+    // Ability has brought to foreground
+    Logger.info(this.TAG, 'Ability onForeground');
+  }
+
+  //应用进入后台。暂停任务、释放资源
+  onBackground(): void {
+    // Ability has back to background
+    Logger.info(this.TAG, 'Ability onBackground');
+  }
+
+  //Ability 被销毁时。最后清理工作
+  onDestroy(): void {
+    Logger.info(this.TAG, 'Ability onDestroy');
+  }
+
+
+
+
+
 
 
 }

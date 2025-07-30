@@ -17,10 +17,7 @@
  * Common constants for all features.
  */
 export default class CommonConstants {
-  /**
-   * The main ability tag.
-   */
-  static readonly TAG_ABILITY: string = 'EntryAbility';
+
 
   /**
    * The login page tag.
