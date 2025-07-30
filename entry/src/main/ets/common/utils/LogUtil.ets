@@ -15,7 +15,10 @@
 
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
+type LogArg = string | number | boolean;
+
 class LogUtil {
+
   private domain: number;
 
   constructor(domain: number) {
@@ -28,19 +31,19 @@ class LogUtil {
   //format 格式字符串,标识{public}的内容明文输出
   //args 格式字符串对应的参数
 
-  d(tag: string, format: string, ...args: string[]): void {
+  d(tag: string, format: string, ...args: LogArg[]): void {
     hilog.debug(this.domain, tag, format, args);
   }
 
-  i(tag: string, format: string, ...args: string[]): void {
+  i(tag: string, format: string, ...args: LogArg[]): void {
     hilog.info(this.domain, tag, format, args);
   }
 
-  w(tag: string, format: string, ...args: string[]): void {
+  w(tag: string, format: string, ...args: LogArg[]): void {
     hilog.warn(this.domain, tag, format, args);
   }
 
-  e(tag: string, format: string, ...args: string[]): void {
+  e(tag: string, format: string, ...args: LogArg[]): void {
     hilog.error(this.domain, tag, format, args);
   }
 }

@@ -15,14 +15,17 @@
 
 import { router } from '@kit.ArkUI';
 import { promptAction } from '@kit.ArkUI';
+import display from '@ohos.display'
+
 import CommonConstants from '../common/constants/CommonConstants';
-import Log from '../common/utils/LogUtil';
+import LogUtil from '../common/utils/LogUtil';
 
 /**
  * Common operation tools.
  */
 export class CommonUtils {
 
+  private TAG = "CommonUtils"
   /**
    * Router page
    *
@@ -32,7 +35,7 @@ export class CommonUtils {
     router.replaceUrl({
       url: url
     }).catch((error: Error) => {
-      Log.e(CommonConstants.TAG_COMMON_UTILS, 'replace url error ' + JSON.stringify(error));
+      LogUtil.e(this.TAG, 'replace url error ' + JSON.stringify(error));
     });
   }
 
@@ -64,6 +67,12 @@ export class CommonUtils {
       return
     }
     this.routerPage('pages/MainPage')
+  }
+
+  public getDefaultDisplay() {
+    display.getDefaultDisplay().then(info => {
+      LogUtil.d(this.TAG, '设备屏幕宽度 px: %{public}d', info.width)
+    })
   }
 }
 

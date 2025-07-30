@@ -30,11 +30,6 @@ export default class CommonConstants {
   static readonly TAG_MAIN_PAGE: string = 'MainPage';
 
   /**
-   * The common utils tag.
-   */
-  static readonly TAG_COMMON_UTILS: string = 'CommonUtils';
-
-  /**
    * The mine page list item cell tag.
    */
   static readonly TAG_LIST_ITEM: string = 'ListItem';
