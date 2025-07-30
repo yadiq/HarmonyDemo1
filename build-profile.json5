@@ -1,0 +1,56 @@
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storeFile": "D:/0Develop/keystore/demo.p12",
+          "storePassword": "00000018895941A6C24E93E74D1E49D2CED6260346706CF463694647139DC1A6890F3505CC486C6D",
+          "keyAlias": "hqumaths",
+          "keyPassword": "00000018C6972D7D988F6F13B17D44B42263D50355BA103EC7F58F4F7E9079A108FFB1545EE311B1",
+          "signAlg": "SHA256withECDSA",
+          "profile": "D:/0Develop/keystore/demo_debug.p7b",
+          "certpath": "D:/0Develop/keystore/demo_debug.cer"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "targetSdkVersion": "5.0.5(17)",
+        "compatibleSdkVersion": "5.0.5(17)",
+        "runtimeOS": "HarmonyOS",
+        "buildOption": {
+          "strictMode": {
+            "caseSensitiveCheck": true,
+            "useNormalizedOHMUrl": true
+          }
+        }
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug",
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

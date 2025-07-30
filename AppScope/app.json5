@@ -1,6 +1,6 @@
 {
   "app": {
-    "bundleName": "com.example.harmonydemo",//唯一标识
+    "bundleName": "com.hqumath.mvpdemo",//唯一标识
     "vendor": "example",//厂商
     "versionCode": 1000000,
     "versionName": "1.0.0",

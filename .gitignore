@@ -20,6 +20,6 @@
 **/.test
 /.appanalyzer
 
-/build-profile.json5
+#/build-profile.json5
 #/oh-package-lock.json5
 #.preview/
