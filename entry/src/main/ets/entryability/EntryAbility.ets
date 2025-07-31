@@ -3,7 +3,7 @@ import { window } from '@kit.ArkUI';
 import BaseUIAbility from '../base/BaseUIAbility';
 import LogUtil from '../utils/LogUtil';
 
-//主 UIAbility 类
+//主入口
 //UIAbility组件，提供展示UI的能力，主要用于和用户交互
 export default class EntryAbility extends BaseUIAbility {
 
@@ -39,13 +39,12 @@ export default class EntryAbility extends BaseUIAbility {
   //创建 UI 页面时调用。设置 UI 页面
   onWindowStageCreate(windowStage: window.WindowStage): void {
     super.onWindowStageCreate(windowStage)
-    windowStage.loadContent('pages/Index')
-    // windowStage.loadContent('pages/LoginPage', (err, data) => {
-    //   if (err.code) {
-    //     Log.e(this.TAG, 'Load the content to failed ' + JSON.stringify(err));
-    //     return;
-    //   }
-    //   Log.d(this.TAG, 'Load the content to succeeded ' + JSON.stringify(data));
-    // });
+    windowStage.loadContent('pages/LoginPage', (err, data) => {
+      if (err.code) {
+        LogUtil.e(this.TAG, 'Load the content to failed ' + JSON.stringify(err));
+        return;
+      }
+      LogUtil.d(this.TAG, 'Load the content to succeeded ' + JSON.stringify(data));
+    });
   }
 }

@@ -40,7 +40,8 @@ struct Index {
   }
 
   /**
-   * 在组件即将从界面移除时触发。用于清理资源，如取消订阅事件、释放内存
+   * 在组件即将从界面移除时触发，在自定义组件析构销毁时执行
+   * 用于清理资源，如取消订阅事件、释放内存
    */
   aboutToDisappear() {
     LogUtil.d(this.TAG, 'aboutToDisappear');

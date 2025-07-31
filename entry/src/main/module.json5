@@ -1,49 +1,46 @@
 {
   "module": {
-    "name": "entry",
     //模块名称
-    "type": "entry",
+    "name": "entry",
     //模块类型 entry:主模块, feature:动态特性模块, har:静态共享包模块, shared:动态共享包模块
-    "description": "$string:module_desc",
+    "type": "entry",
     //模块描述
-    "mainElement": "EntryAbility",
+    "description": "$string:module_desc",
     //入口UIAbility名称
+    "mainElement": "EntryAbility",
+    //可以运行在哪类设备上
     "deviceTypes": [
-      //可以运行在哪类设备上
       "phone",
       "tablet",
       "2in1"
-      //PC设备 PC/2in1
     ],
-    "deliveryWithInstall": true,
     //该模块是否在用户主动安装的时候安装
-    "installationFree": false,
+    "deliveryWithInstall": true,
     //是否支持免安装特性
+    "installationFree": false,
+    //配置页面信息(页面路由信息 + 窗口配置)
+    //  designWidth:页面基准宽度，缺省值为720px
+    //  autoDesignWidth:页面设计基准宽度是否自动计算，缺省false(使用designWidth)
     "pages": "$profile:main_pages",
-    //配置页面信息
-    //src:页面的路由信息
-    //window:窗口相关的配置
-    //designWidth:页面基准宽度，缺省值为720px
-    //autoDesignWidth:页面设计基准宽度是否自动计算，缺省false(使用designWidth)
     //"srcEntry": "./ets/base/BaseApplication.ets",
+    //UIAbility组件的配置
     "abilities": [
-      //UIAbility组件的配置
       {
         "name": "EntryAbility",
         //代码路径
         "srcEntry": "./ets/entryability/EntryAbility.ets",
         "description": "$string:EntryAbility_desc",
-        "icon": "$media:layered_image",
         //图标
-        "label": "$string:EntryAbility_label",
+        "icon": "$media:layered_image",
         //显示名称
-        "startWindowIcon": "$media:startIcon",
+        "label": "$string:EntryAbility_label",
         //启动页面图标
+        "startWindowIcon": "$media:startIcon",
         "startWindowBackground": "$color:start_window_background",
-        "exported": true,
         //是否可以被其他应用调用
+        "exported": true,
+        //能够接收的Want特征集。需要在桌面展示图片
         "skills": [
-          //能够接收的Want特征集。需要在桌面展示图片
           {
             "entities": [
               "entity.system.home"
@@ -57,21 +54,26 @@
     ],
     //ExtensionAbility组件的配置
     "extensionAbilities": [
-
       {
         "name": "EntryBackupAbility",
         "srcEntry": "./ets/entrybackupability/EntryBackupAbility.ets",
         //类型。form:卡片, backup:数据备份
         "type": "backup",
         "exported": false,
+        //自定义元信息
         "metadata": [
-          //自定义元信息
           {
             "name": "ohos.extension.backup",
             "resource": "$profile:backup_config"
           }
         ],
       }
-    ]
+    ],
+    //声明权限
+    "requestPermissions": [{
+      "name": "ohos.permission.INTERNET"
+    }],
+    //页面路由映射配置 NavPathStack
+//    "routerMap": "$profile:route_map"
   }
 }
