@@ -25,7 +25,7 @@
     //window:窗口相关的配置
     //designWidth:页面基准宽度，缺省值为720px
     //autoDesignWidth:页面设计基准宽度是否自动计算，缺省false(使用designWidth)
-    "srcEntry": "./ets/base/BaseApplication.ets",
+    //"srcEntry": "./ets/base/BaseApplication.ets",
     "abilities": [
       //UIAbility组件的配置
       {

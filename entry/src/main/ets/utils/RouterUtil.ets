@@ -12,8 +12,8 @@ class RouterUtil {
    * @param url
    * @param params
    */
-  push(url: string, params?: Record<string, Arg>) {
-    router.pushUrl({
+  push(url: string, params?: Record<string, Arg>): Promise<void> {
+    return router.pushUrl({
       url, params
     }).catch((error: Error) => {
       LogUtil.e(this.TAG, 'push error %s', JSON.stringify(error));
@@ -25,6 +25,13 @@ class RouterUtil {
    */
   back() {
     router.back()
+    // try {
+    //   router.back()
+    // } catch (err) {
+    //   let code = (err as BusinessError).code
+    //   let message = (err as BusinessError).message
+    //   LogUtil.e(this.TAG, `Failed to return to the first page. Code is ${code}, message is ${message}`)
+    // }
   }
 
   /**
@@ -32,8 +39,8 @@ class RouterUtil {
    * @param url
    * @param params
    */
-  replace(url: string, params?: Record<string, Arg>) {
-    router.replaceUrl({
+  replace(url: string, params?: Record<string, Arg>): Promise<void> {
+    return router.replaceUrl({
       url, params
     }).catch((error: Error) => {
       LogUtil.e(this.TAG, 'replace error %s', JSON.stringify(error));

@@ -39,7 +39,7 @@ export default class EntryAbility extends BaseUIAbility {
   //创建 UI 页面时调用。设置 UI 页面
   onWindowStageCreate(windowStage: window.WindowStage): void {
     super.onWindowStageCreate(windowStage)
-    windowStage.loadContent('pages/LoginPage')
+    windowStage.loadContent('pages/Index')
     // windowStage.loadContent('pages/LoginPage', (err, data) => {
     //   if (err.code) {
     //     Log.e(this.TAG, 'Load the content to failed ' + JSON.stringify(err));

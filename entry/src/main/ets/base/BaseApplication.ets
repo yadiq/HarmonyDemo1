@@ -1,7 +1,7 @@
 import { AbilityStage } from "@kit.AbilityKit";
 import Log from '../utils/LogUtil';
 
-//应用 Application 类
+//应用 Application 类 弃用
 export default class BaseApplication extends AbilityStage {
   private TAG = "BaseApplication"
 
