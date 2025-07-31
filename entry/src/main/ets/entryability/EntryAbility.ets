@@ -1,7 +1,7 @@
 import { AbilityConstant, Want } from '@kit.AbilityKit';
 import { window } from '@kit.ArkUI';
 import BaseUIAbility from '../base/BaseUIAbility';
-import LogUtil from '../common/utils/LogUtil';
+import LogUtil from '../utils/LogUtil';
 
 //主 UIAbility 类
 //UIAbility组件，提供展示UI的能力，主要用于和用户交互

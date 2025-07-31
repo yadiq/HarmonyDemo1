@@ -1,5 +1,6 @@
 import StyleConstants from '../common/constants/StyleConstants'
-import CommonUtils from '../utils/CommonUtils'
+import CommonUtil from '../utils/CommonUtil'
+import RouterUtil from '../utils/RouterUtil'
 
 /**
  * 登录界面
@@ -75,7 +76,7 @@ struct LoginBottom {
       // 两个输入框
       Column() {
         // 账号
-        TextInput({placeholder: '账号', text: this.account})
+        TextInput({ placeholder: '账号', text: this.account })
           .maxLength(11)
           .type(InputType.Number)
           .inputStyle()
@@ -88,7 +89,7 @@ struct LoginBottom {
           .backgroundColor($r('app.color.background'))
 
         // 密码
-        TextInput({placeholder: '密码', text: this.password})
+        TextInput({ placeholder: '密码', text: this.password })
           .maxLength(8)
           .type(InputType.Password)
           .inputStyle()
@@ -104,16 +105,16 @@ struct LoginBottom {
         Text('短信验证码登录')
           .blueTextStyle()
           .onClick(() => {
-            CommonUtils.showToastContent('此功能未完善，敬请期待')
+            CommonUtil.toast('此功能未完善，敬请期待')
           })
         Text('忘记密码')
           .blueTextStyle()
           .onClick(() => {
-            CommonUtils.showToastContent('此功能未完善，敬请期待')
+            CommonUtil.toast('此功能未完善，敬请期待')
           })
       }
       .width('100%')
-      .margin({top: 12})
+      .margin({ top: 12 })
       .padding({
         left: 12,
         right: 12
@@ -132,7 +133,15 @@ struct LoginBottom {
         .fontSize(16)
         .fontWeight(FontWeight.Medium)
         .onClick(() => {
-          CommonUtils.login(this.account, this.password)
+          if (this.account === '') {
+            CommonUtil.toast('请输入账号')
+            return
+          }
+          if (this.password === '') {
+            CommonUtil.toast('请输入密码')
+            return
+          }
+          RouterUtil.replace('pages/MainPage')
         })
 
       //注册
@@ -141,7 +150,7 @@ struct LoginBottom {
         .fontColor('#007DFF')
         .fontWeight(FontWeight.Medium)
         .onClick(() => {
-          CommonUtils.showToastContent('此功能未完善，敬请期待')
+          CommonUtil.toast('此功能未完善，敬请期待')
         })
     }
     .padding({
@@ -157,16 +166,18 @@ struct LoginBottom {
 /**
  * 定义扩展组件样式
  */
-@Extend(TextInput) function inputStyle() {
+@Extend(TextInput)
+function inputStyle() {
   .placeholderColor('#99182431')
   .height(48)
   .fontSize(16)
   .backgroundColor(Color.White)
-  .margin({top: 4})
-  .padding({left: 12})
+  .margin({ top: 4 })
+  .padding({ left: 12 })
 }
 
-@Extend(Text) function blueTextStyle() {
+@Extend(Text)
+function blueTextStyle() {
   .fontColor('#007DFF')
   .fontSize(14)
   .fontWeight(FontWeight.Medium)

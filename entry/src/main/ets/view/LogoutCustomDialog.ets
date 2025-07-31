@@ -1,5 +1,5 @@
 import CommonConstants from '../common/constants/CommonConstants'
-import CommonUtils from '../utils/CommonUtils'
+import CommonUtil from '../utils/CommonUtil'
 
 /**
  * 退出登录弹窗
@@ -33,7 +33,7 @@ export struct LogoutCustomDialog {
         Button('确定')
           .onClick(() => {
             this.controller.close()
-            CommonUtils.routerPage(CommonConstants.LOGIN_PAGE_URL)
+            CommonUtil.toast(CommonConstants.LOGIN_PAGE_URL)
           })
       }
       .margin({

@@ -1,5 +1,5 @@
 import CommonConstants from '../common/constants/CommonConstants'
-import CommonUtils from '../utils/CommonUtils'
+import CommonUtil from '../utils/CommonUtil'
 import ItemData from '../ViewModel/ItemData'
 import MainViewModel from '../ViewModel/MainViewModel'
 import { LogoutCustomDialog } from './LogoutCustomDialog'
@@ -41,7 +41,7 @@ export default struct MinePage {
         .backgroundColor('#E5E8EA')
         .onClick(() => {
           this.logoutCustomDialogController?.open();
-          //CommonUtils.routerPage(CommonConstants.LOGIN_PAGE_URL)
+          //CommonUtil.toast(CommonConstants.LOGIN_PAGE_URL)
         })
     }
     .width('100%')
@@ -139,7 +139,7 @@ struct ListItemView {
         Toggle({ type: ToggleType.Switch, isOn: false })
           .onChange((isChange: boolean) => {
             let change = isChange ? '推送已打开' : '推送已关闭'
-            CommonUtils.showToastContent(change)
+            CommonUtil.toast(change)
           })
       }
     }
@@ -151,7 +151,7 @@ struct ListItemView {
     .justifyContent(FlexAlign.SpaceBetween)
     .onClick(() => {
       if (this.item?.clickPrompt) {
-        CommonUtils.showToastContent(this.item?.clickPrompt)
+        CommonUtil.toast(this.item?.clickPrompt)
       }
     })
   }

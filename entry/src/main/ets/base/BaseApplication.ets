@@ -1,5 +1,5 @@
 import { AbilityStage } from "@kit.AbilityKit";
-import Log from '../common/utils/LogUtil';
+import Log from '../utils/LogUtil';
 
 //应用 Application 类
 export default class BaseApplication extends AbilityStage {

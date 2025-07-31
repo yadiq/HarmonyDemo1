@@ -1,5 +1,5 @@
 import StyleConstants from '../common/constants/StyleConstants'
-import CommonUtils from '../utils/CommonUtils'
+import CommonUtil from '../utils/CommonUtil'
 import ItemData from '../ViewModel/ItemData'
 import MainViewModel from '../ViewModel/MainViewModel'
 import { JSON } from '@kit.ArkTS'
@@ -155,7 +155,7 @@ struct GridItemView {
     }
     .onClick(() => {
       if (this.item?.clickPrompt) {
-        CommonUtils.showToastContent(this.item?.clickPrompt)
+        CommonUtil.toast(this.item?.clickPrompt)
       }
     })
   }
@@ -204,7 +204,7 @@ struct ListItemView {
     }
     .onClick(() => {
       if (this.item?.clickPrompt) {
-        CommonUtils.showToastContent(this.item?.clickPrompt)
+        CommonUtil.toast(this.item?.clickPrompt)
       }
     })
   }

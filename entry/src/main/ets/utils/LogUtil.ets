@@ -15,8 +15,9 @@
 
 import { hilog } from '@kit.PerformanceAnalysisKit';
 
-type LogArg = string | number | boolean;
+type Arg = string | number | boolean;
 
+//日志工具类
 class LogUtil {
 
   private domain: number;
@@ -31,19 +32,19 @@ class LogUtil {
   //format 格式字符串,标识{public}的内容明文输出
   //args 格式字符串对应的参数
 
-  d(tag: string, format: string, ...args: LogArg[]): void {
+  d(tag: string, format: string, ...args: Arg[]): void {
     hilog.debug(this.domain, tag, format, args);
   }
 
-  i(tag: string, format: string, ...args: LogArg[]): void {
+  i(tag: string, format: string, ...args: Arg[]): void {
     hilog.info(this.domain, tag, format, args);
   }
 
-  w(tag: string, format: string, ...args: LogArg[]): void {
+  w(tag: string, format: string, ...args: Arg[]): void {
     hilog.warn(this.domain, tag, format, args);
   }
 
-  e(tag: string, format: string, ...args: LogArg[]): void {
+  e(tag: string, format: string, ...args: Arg[]): void {
     hilog.error(this.domain, tag, format, args);
   }
 }
