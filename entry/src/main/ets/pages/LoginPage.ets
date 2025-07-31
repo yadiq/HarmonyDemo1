@@ -1,6 +1,8 @@
 import StyleConstants from '../common/constants/StyleConstants'
 import CommonUtil from '../utils/CommonUtil'
 import RouterUtil from '../utils/RouterUtil'
+import LoadingDialog from '@lyb/loading-dialog';
+
 
 /**
  * 登录界面
@@ -8,27 +10,14 @@ import RouterUtil from '../utils/RouterUtil'
 @Entry
 @Component
 struct LoginPage {
+
   build() {
-    GridRow({
-      //网格布局
-      columns: 1, //布局列数,默认值：12
-      gutter: {
-        //布局间距
-        x: StyleConstants.GRID_GUTTER //水平方向间距
-      }
-    }) {
-      GridCol({
-        //网格组件
-        span: 1, //占用的列数，默认1
-        offset: 0, //相对于原本位置偏移的列数，默认0
-      }) {
-        Column() { //沿垂直方向布局的容器
-          LoginTop()
-          LoginBottom()
-        }
-        .backgroundColor($r('app.color.background'))
-      }
+    Column() { //沿垂直方向布局的容器
+      LoginTop()
+      LoginBottom()
     }
+    .width('100%')
+    .backgroundColor($r('app.color.background'))
   }
 }
 
@@ -70,6 +59,19 @@ struct LoginTop {
 struct LoginBottom {
   @State account: string = '1'
   @State password: string = '1'
+
+  private login() {
+    if (this.account === '') {
+      CommonUtil.toast('请输入账号')
+      return
+    }
+    if (this.password === '') {
+      CommonUtil.toast('请输入密码')
+      return
+    }
+    //LoadingDialog.showLoading('数据正在加载中...')
+    RouterUtil.replace('pages/MainPage')
+  }
 
   build() {
     Column() {
@@ -133,15 +135,7 @@ struct LoginBottom {
         .fontSize(16)
         .fontWeight(FontWeight.Medium)
         .onClick(() => {
-          if (this.account === '') {
-            CommonUtil.toast('请输入账号')
-            return
-          }
-          if (this.password === '') {
-            CommonUtil.toast('请输入密码')
-            return
-          }
-          RouterUtil.replace('pages/MainPage')
+          this.login()
         })
 
       //注册

@@ -70,11 +70,6 @@ export default class CommonConstants {
   static readonly MAIN_PAGE_URL: string = 'pages/MainPage';
 
   /**
-   * Login page url.
-   */
-  static readonly LOGIN_PAGE_URL: string = 'pages/LoginPage';
-
-  /**
    * Break point sm of the tag.
    */
   static readonly SM: string = 'sm';

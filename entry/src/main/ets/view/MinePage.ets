@@ -1,8 +1,8 @@
-import CommonConstants from '../common/constants/CommonConstants'
+import { AlertDialog } from '@kit.ArkUI';
 import CommonUtil from '../utils/CommonUtil'
+import RouterUtil from '../utils/RouterUtil';
 import ItemData from '../ViewModel/ItemData'
 import MainViewModel from '../ViewModel/MainViewModel'
-import { LogoutCustomDialog } from './LogoutCustomDialog'
 
 /**
  * 我的页面
@@ -11,11 +11,30 @@ import { LogoutCustomDialog } from './LogoutCustomDialog'
 @Component
 export default struct MinePage {
   //退出弹窗
-  logoutCustomDialogController: CustomDialogController | null = new CustomDialogController({
-    builder: LogoutCustomDialog(),
-    alignment: DialogAlignment.Center,
-    offset: { dx: 0, dy: -25 }
-  });
+  // logoutCustomDialogController: CustomDialogController | null = new CustomDialogController({
+  //   builder: LogoutCustomDialog(),
+  //   alignment: DialogAlignment.Center,
+  //   offset: { dx: 0, dy: -25 }
+  // });
+  logoutDialog: CustomDialogController =  new CustomDialogController({
+    builder: AlertDialog({
+      primaryTitle: '提示',
+      content: '确认要退出当前账号？',
+      primaryButton: {
+        value: '取消',
+        action: () => {
+        },
+      },
+      secondaryButton: {
+        value: '确认',
+        role: ButtonRole.ERROR,
+        action: () => {
+          RouterUtil.clear()
+          RouterUtil.push('pages/LoginPage')
+        }
+      },
+    }),
+  })
 
   build() {
     Column() {
@@ -40,8 +59,7 @@ export default struct MinePage {
         .fontWeight(FontWeight.Medium)
         .backgroundColor('#E5E8EA')
         .onClick(() => {
-          this.logoutCustomDialogController?.open();
-          //CommonUtil.toast(CommonConstants.LOGIN_PAGE_URL)
+          this.logoutDialog.open();
         })
     }
     .width('100%')

@@ -33,7 +33,7 @@ export struct LogoutCustomDialog {
         Button('确定')
           .onClick(() => {
             this.controller.close()
-            CommonUtil.toast(CommonConstants.LOGIN_PAGE_URL)
+            // CommonUtil.toast(CommonConstants.LOGIN_PAGE_URL)
           })
       }
       .margin({
